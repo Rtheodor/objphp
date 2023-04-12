@@ -24,16 +24,16 @@ ob_start();
 
     $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
     if (!empty($formData['SendAddUser'])) {
-        var_dump($formData);
+        //var_dump($formData);
         $createUser = new User();
         $createUser->formData = $formData;
         $value = $createUser->create();
 
 
-        if($value){
-           $_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso!</p>";
-           header("Location:index.php");
-        }else {
+        if ($value) {
+            $_SESSION['msg'] = "<p style='color:green;'>Usuário cadastrado com sucesso!</p>";
+            header("Location:index.php");
+        } else {
             echo "<p style='color:red;'> Erro: Usuário não cadastrado com sucesso.</p>";
         }
     }
@@ -46,6 +46,14 @@ ob_start();
 
         <label>Email: </label>
         <input type="email" name="email" placeholder="Melhor Email" required /><br><br>
+       
+        <label>Escolha um Pais</label>
+        <select name="pais">
+            <option value="Selecione">Selecione</option>
+            <option value="br">Brasil</option>
+            <option value="ca">Canada</option>
+            <option value="me">Mexico</option>
+        </select><br><br>
 
         <input type="submit" value="Cadastrar" name="SendAddUser" />
 

@@ -37,6 +37,7 @@ session_start();
         echo "Nome: $name <br>";
         //echo "ID: " . $row_user['email'] . "<br>";
         echo "Email: $email <br>";
+        echo "Pais: $pais <br>";
         echo "<hr>";
         //var_dump($row_user);
     }
