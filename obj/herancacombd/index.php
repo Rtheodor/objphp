@@ -22,6 +22,7 @@ session_start();
         unset($_SESSION['msg']);
     }
 
+    
     require './Conn.php';
     require './User.php';
 
@@ -38,6 +39,7 @@ session_start();
         //echo "ID: " . $row_user['email'] . "<br>";
         echo "Email: $email <br>";
         echo "Pais: $pais <br>";
+        echo "<a href='view.php?id=$id'>Detalhes do usuário</a><br>";
         echo "<hr>";
         //var_dump($row_user);
     }

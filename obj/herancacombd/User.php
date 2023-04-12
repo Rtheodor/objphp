@@ -5,6 +5,8 @@ class User extends Conn
 {
     public object $conn;
     public array $formData;
+
+    public int $id;
     public function list(): array
     {
         $this->conn = $this->connectDb();
@@ -31,5 +33,16 @@ class User extends Conn
         }else {
             return false;
         }
+
+    }
+    public function view(){
+        $this->conn = $this->connectDb();
+      $query_user = "SELECT id, name, email,pais, created, modified FROM users WHERE id = :id LIMIT 1";
+       $result_user = $this->conn->prepare($query_user);
+       $result_user->bindParam(':id', $this->id);
+       $result_user->execute();
+       $value = $result_user->fetch();
+       return $value;
+
     }
 }
