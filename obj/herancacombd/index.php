@@ -21,10 +21,10 @@ session_start();
         echo $_SESSION['msg'];
         unset($_SESSION['msg']);
     }
-
     
     require './Conn.php';
     require './User.php';
+    require './DataHora.php';
 
     $listUsers = new User();
     $result_users = $listUsers->list();
@@ -43,6 +43,12 @@ session_start();
         echo "<hr>";
         //var_dump($row_user);
     }
+    
+    //Data no rodapé 
+     $test_hora = new DataHora();
+     $result_hora = $test_hora->dataHoraAgora();
+   
+    
 
     ?>
 
