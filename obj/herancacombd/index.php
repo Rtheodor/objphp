@@ -7,14 +7,14 @@ session_start();
 
 <head>
     <meta charset="UTF-8">
-    <title>Herança / BD</title>
+    <title>Home</title>
 </head>
 
 <body>
 
     <a href="index.php">Listar</a><br>
     <a href="create.php">Cadastrar</a><br><br>
-    <h1>Listar Usuários</h1>
+    <h1>Listar usuários</h1>
     
     <?php
     if(isset($_SESSION['msg'])){
@@ -40,6 +40,7 @@ session_start();
         echo "Email: $email <br>";
         echo "Pais: $pais <br>";
         echo "<a href='view.php?id=$id'>Detalhes do usuário</a><br>";
+        echo "<a href='editar.php?id=$id'>Editar o usuário</a><br>";
         echo "<hr>";
         //var_dump($row_user);
     }
@@ -48,8 +49,6 @@ session_start();
      $test_hora = new DataHora();
      $result_hora = $test_hora->dataHoraAgora();
    
-    
-
     ?>
 
 </body>

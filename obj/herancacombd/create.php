@@ -46,14 +46,16 @@ ob_start();
 
         <label>Email: </label>
         <input type="email" name="email" placeholder="Melhor Email" required /><br><br>
-       
-        <label>Escolha um Pais</label>
-        <select name="pais">
-            <option value="Selecione">Selecione</option>
-            <option value="br">Brasil</option>
-            <option value="ca">Canada</option>
-            <option value="me">Mexico</option>
-        </select><br><br>
+
+        <label>Selecionar o Pais</label>
+            
+            <select name="pais" required>
+                <option value="">Selecione</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Canada">Canada</option>
+                <option value="Mexico">Mexico</option>
+            </select>
+            </input><br><br>
 
         <input type="submit" value="Cadastrar" name="SendAddUser" />
 

@@ -33,7 +33,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         //Incluir os arquivos
         require './Conn.php';
         require './User.php';
-        //Instanciar classe e criar o objeto
+        //Instanciar classe e cria o objeto
         $viewUser = new User();
 
         //Enviando o id para o atributo id da classe User

@@ -35,7 +35,8 @@ class User extends Conn
         }
 
     }
-    public function view(){
+    public function view()
+    {
         $this->conn = $this->connectDb();
       $query_user = "SELECT id, name, email,pais, created, modified FROM users WHERE id = :id LIMIT 1";
        $result_user = $this->conn->prepare($query_user);
@@ -44,5 +45,30 @@ class User extends Conn
        $value = $result_user->fetch();
        return $value;
 
+    }
+    public function edit():bool
+    {
+        var_dump($this->formData);
+        $this->conn = $this->connectDb();
+        //criando a query e setando quais colunas devem ser usadas
+        $query_user = "UPDATE users SET name =:name, email =:email, pais =:pais, modified=NOW()
+        WHERE id=:id";
+        //preparando a conexion
+        $edit_user = $this->conn->prepare($query_user);
+        //Substituir links pelo que tem em formData
+        $edit_user->bindParam(':name',$this->formData['name']);
+        $edit_user->bindParam(':email',$this->formData['email']);
+        $edit_user->bindParam(':pais',$this->formData['pais']);
+        $edit_user->bindParam(':id',$this->formData['id']);
+        $edit_user->execute();
+
+        if($edit_user->rowCount()){
+            return true;
+        }else{
+            return false;
+        }
+
+
+        
     }
 }
