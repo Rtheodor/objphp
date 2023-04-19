@@ -49,6 +49,7 @@ class User extends Conn
     public function edit():bool
     {
         var_dump($this->formData);
+        
         $this->conn = $this->connectDb();
         //criando a query e setando quais colunas devem ser usadas
         $query_user = "UPDATE users SET name =:name, email =:email, pais =:pais, modified=NOW()
@@ -61,7 +62,7 @@ class User extends Conn
         $edit_user->bindParam(':pais',$this->formData['pais']);
         $edit_user->bindParam(':id',$this->formData['id']);
         $edit_user->execute();
-
+        //$edit_user->debugDumpParams();
         if($edit_user->rowCount()){
             return true;
         }else{

@@ -19,6 +19,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
     <a href="index.php">Listar</a><br>
     <a href="create.php">Cadastrar</a><br><br>
+    
     <h1>Editar o usuários</h1>
 
     <?php
@@ -70,13 +71,14 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         //Estanciar o metodo visualizar
         $velueUser = $viewUser->view();
         //var_dump($velueUser);
-        //Estraindo informações de um array
+        //Extraindo informações de um array
         //var_dump($velueUser);
         extract($velueUser);
 
     ?>
         <form name="EditUser" method="POST" action="">
-            <input type="hidden" nome="id" value="<?php echo $id; ?>" />
+            <input type="hidden" name="id" value="<?php echo $id; ?>" />
+            
             <label>Nome: </label>
             <input type="text" name="name" placeholder="Nome completo" value="<?php echo $name; ?>" required /><br><br>
 
