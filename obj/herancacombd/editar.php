@@ -29,7 +29,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 
      //Incluir os arquivos
      require './Conn.php';
-     require './User.php';
+     require './User.php'; 
      
       //Receber o dados do formulario
       $formData = filter_input_array(INPUT_POST, FILTER_DEFAULT);
@@ -38,7 +38,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
         if(!empty($formData['SendEditUser']))
         {
             var_dump($formData);
-            //Estancio o User para dai crirar um objeto 
+            //Estancio o User para dai criar um objeto 
             $editUser = new User();
 
             //formData que se encontra no arquivo User
@@ -46,6 +46,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             
              //Nesta parte verificamos se o edit será true or false
              $value = $editUser->edit();
+            
              if($value){
                 $_SESSION['msg'] = "<p style='color:green;'>Usuário editado com sucesso!</p>";
                 header("Location:index.php");
@@ -83,7 +84,7 @@ $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             <input type="email" name="email" placeholder="Melhor Email" value="<?php echo $email; ?>" required /><br><br>
 
             <label>Pais</label>
-            <!--<input type="select" name="pais" value="<//?php echo $pais; ?>"-->
+            
             <select name="pais" required>
                 <option value="">Selecione</option>
                 <option value="Brasil">Brasil</option>

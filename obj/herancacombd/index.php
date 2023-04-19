@@ -36,11 +36,14 @@ session_start();
         echo "ID: $id <br>";
         //echo "Nome: " . $row_user['name'] . "<br>";
         echo "Nome: $name <br>";
-        //echo "ID: " . $row_user['email'] . "<br>";
+        //echo "Email: " . $row_user['email'] . "<br>";
         echo "Email: $email <br>";
+        //echo "Pais: " . $row_user['pais'] . "<br>";
         echo "Pais: $pais <br>";
+        
         echo "<a href='view.php?id=$id'>Detalhes do usuário</a><br>";
         echo "<a href='editar.php?id=$id'>Editar o usuário</a><br>";
+        echo "<a href='delete.php?id=$id'>Deletar</a><br>";
         echo "<hr>";
         //var_dump($row_user);
     }
